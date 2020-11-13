@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TrashCollector.Models;
 
 namespace TrashCollector.Data
 {
@@ -25,6 +26,7 @@ namespace TrashCollector.Data
             }
             );
         }
+        public DbSet<TrashCollector.Models.Customer> Customer { get; set; }
 
     }
 }

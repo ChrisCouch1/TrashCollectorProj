@@ -16,6 +16,7 @@ namespace TrashCollector.ActionFilters
             _claimsPrincipal = claimsPrincipal;
         }
         public void OnActionExecuting(ActionExecutingContext context)
+        
         {
             var controller = context.RouteData.Values["controller"];
             if (controller.Equals("Home"))

@@ -33,7 +33,7 @@ namespace TrashCollector.Controllers
                 return View(nameof(Create));
             }
             var applicationDbContext = _context.Customer.Include(c => c.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await applicationDbContext.FirstAsync());
         }
 
         // GET: Customer/Details/5
@@ -69,7 +69,7 @@ namespace TrashCollector.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,IdentityUserId")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,Name,Address,TrashDay,IdentityUserId")] Customer customer)
         {
             if (ModelState.IsValid)
             {

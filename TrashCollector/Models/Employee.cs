@@ -13,6 +13,8 @@ namespace TrashCollector.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+
+        [Display(Name="Location")]
         public string ZIPCode { get; set; }
         public string DayOfWork { get; set; }
         public List<Customer> PickupList { get; set; }

@@ -36,7 +36,8 @@ namespace TrashCollector.Controllers
             {
                 employee.DayOfWork = "Monday";
             }
-            var TodaysPickups = _context.Customer.Where(c => c.TrashDay == employee.DayOfWork).ToList();
+            List<Customer> TodaysPickups = _context.Customer.Where(c => c.TrashDay == employee.DayOfWork && c.VerifiedPickedUp == false).ToList();
+            employee.PickupList = TodaysPickups;
             
             return View(employee);
         }

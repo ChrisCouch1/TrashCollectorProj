@@ -24,7 +24,7 @@ namespace TrashCollector.Models
         [Display(Name ="One Time Pick-up Scheduled for:")]
         public string OneTimePickUpDate { get; set; }
         public double Balance { get; set; }
-        public bool VerifiedPickedUp = false;
+        public bool VerifiedPickedUp { get; set; }
 
         public IEnumerable<string> DaysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
 

@@ -23,7 +23,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customer
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var customer = _context.Customer.Where(c => c.IdentityUserId ==
@@ -32,8 +32,8 @@ namespace TrashCollector.Controllers
             {
                 return View(nameof(Create));
             }
-            var applicationDbContext = _context.Customer.Include(c => c.IdentityUser);
-            return View(await applicationDbContext.FirstAsync());
+           
+            return View(customer);
         }
 
         // GET: Customer/Details/5

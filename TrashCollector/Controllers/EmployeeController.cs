@@ -23,7 +23,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Employee
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var employee = _context.Employee.Where(e => e.IdentityUserId ==
@@ -32,8 +32,8 @@ namespace TrashCollector.Controllers
             {
                 return View(nameof(Create));
             }
-            var applicationDbContext = _context.Employee.Include(e => e.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            
+            return View(employee);
         }
 
         // GET: Employee/Details/5
@@ -71,6 +71,8 @@ namespace TrashCollector.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                employee.IdentityUserId = userId;
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

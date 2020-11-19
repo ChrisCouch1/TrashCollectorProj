@@ -15,6 +15,7 @@ namespace TrashCollector.Models
         public string Name { get; set; }
         public string ZIPCode { get; set; }
         public string DayOfWork { get; set; }
+        public List<Customer> PickupList { get; set; }
 
         public IEnumerable<string> DaysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
 

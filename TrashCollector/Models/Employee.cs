@@ -14,7 +14,10 @@ namespace TrashCollector.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string ZIPCode { get; set; }
-        
+        public string DayOfWork { get; set; }
+
+        public IEnumerable<string> DaysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }
